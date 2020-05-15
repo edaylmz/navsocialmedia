@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">nav</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string-array name="Spinner">
+
+        <item>secim yapiniz</item>
+        <item>concert</item>
+        <item>sport</item>
+        <item>meeting</item>
+        <item>other</item>
+
+    </string-array>
+
+    <string name="home_second">Home Second</string>
+    <string name="kaydol">Kaydol</string>
+    <string name="giris">Giriş</string>
+    <string name="email_adresi">Email Adresi</string>
+    <string name="sifre">Sifre</string>
+    <string name="sifre_kyt">Şifre</string>
+    <string name="email">Email</string>
+    <string name="kaydol_kyt">Kaydol</string>
+    <string name="giris_yap">Mevcut hesabınız var mı?Giriş Yapın.</string>
+    <string name="etkinlik_ad">Etkinlik Adı</string>
+    <string name="etkinlik_detaylar">Etkinlik Detayları</string>
+    <string name="etkinlik_tarihi">Etkinlik Tarihi</string>
+    <string name="etkinlik_saati">Etkinlik saati</string>
+    <string name="kaydet">Kaydet</string>
+    <string name="kapat">Kapat</string>
+</resources>

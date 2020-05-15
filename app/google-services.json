@@ -1,0 +1,40 @@
+  {
+  "project_info": {
+    "project_number": "579722462101",
+    "firebase_url": "https://navproject-277014.firebaseio.com",
+    "project_id": "navproject-277014",
+    "storage_bucket": "navproject-277014.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579722462101:android:4a496ba247b20a90dc2c9c",
+        "android_client_info": {
+          "package_name": "com.example.nav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579722462101-jcnvf36hfh0r5v66mfj1vlhe716peptq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB55tdsIlh4Ua-hvCgBaUiZtSb9M6VkYm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579722462101-jcnvf36hfh0r5v66mfj1vlhe716peptq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
