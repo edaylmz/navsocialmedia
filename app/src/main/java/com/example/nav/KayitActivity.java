@@ -110,7 +110,7 @@ public class KayitActivity extends AppCompatActivity {
 
                             String kullaniciId =firebaseAuth.getUid();
 
-                            path = FirebaseDatabase.getInstance().getReference().child("Kullanicilar").child("kullaniciId");
+                            path = FirebaseDatabase.getInstance().getReference().child("Kullanicilar").child(kullaniciId);
 
                             HashMap<String,Object> hashMap = new HashMap<>();
 

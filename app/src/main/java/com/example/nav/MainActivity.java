@@ -1,10 +1,12 @@
 package com.example.nav;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,8 +42,8 @@ public class MainActivity extends AppCompatActivity
     ExpandableListView expandableListView;
     private List<Event> eventList = new ArrayList<>();
     public static DrawerLayout drawer;
-    FirebaseDatabase fb;
-    DatabaseReference yol;
+    private static FirebaseDatabase fb;
+    private static DatabaseReference yol;
 
 
     @Override
@@ -52,15 +54,33 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        String currentId = currentUser.getUid();
+        final String currentId = currentUser.getUid();
 
         yol = FirebaseDatabase.getInstance().getReference().child("events");
         expandableListView = (ExpandableListView)findViewById(R.id.simple_expandable_listview);
         yol.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds:dataSnapshot.getChildren())
-                String value = dataSnapshot.getValue(String.class);
+                eventList.clear();
+                for (DataSnapshot ds:dataSnapshot.getChildren()){
+                    Event event = ds.getValue(Event.class);
+                    if (event.getUserId()==currentId){
+                        eventList.add(event);
+                    }
+                }
+                final ExpandableListViewAdapter adapter = new ExpandableListViewAdapter(MainActivity.this,eventList);
+                final int[] prevExpandPosition = {-1};
+                expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+                    @Override
+                    public void onGroupExpand(int groupPosition) {
+                        if (prevExpandPosition[0] >= 0 && prevExpandPosition[0] != groupPosition) {
+                            expandableListView.collapseGroup(prevExpandPosition[0]);
+                        }
+                        prevExpandPosition[0] = groupPosition;
+                    }
+                });
+                expandableListView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -68,7 +88,8 @@ public class MainActivity extends AppCompatActivity
                 Log.w("Failed to read value", databaseError.toException());
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -83,13 +104,24 @@ public class MainActivity extends AppCompatActivity
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.mainLayout, mapFragment).commit();
 
-       /** mAppBarConfiguration = new AppBarConfiguration.Builder(
+       /* mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);**/
+        NavigationUI.setupWithNavController(navigationView, navController);*/
+        Button exitButton = (Button)findViewById(R.id.exitButton);
+
+
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -140,6 +172,7 @@ public class MainActivity extends AppCompatActivity
 
     }
     public static void closeDrawer() {
+
         drawer.closeDrawer(GravityCompat.START);
     }
 

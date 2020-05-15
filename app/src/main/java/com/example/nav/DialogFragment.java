@@ -109,7 +109,10 @@ public class DialogFragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapShot:dataSnapshot.getChildren()){
                     Event event = postSnapShot.getValue(Event.class);
-                    list_event.add(event);
+                    if(currentUser.userId==event.userId){
+                       list_event.add(event);
+                    }
+
                 }
 
             }
