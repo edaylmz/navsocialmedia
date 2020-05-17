@@ -116,8 +116,7 @@ public class KayitActivity extends AppCompatActivity {
 
                             hashMap.put("id",kullaniciId);
                             hashMap.put("kullaniciAdi",kullaniciAdi.toLowerCase());
-                            hashMap.put("friends","");
-                            hashMap.put("event","");
+
 
                             path.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

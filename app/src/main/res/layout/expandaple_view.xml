@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,48 +17,39 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/button_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/button_rounded"
+        android:layout_weight="1"
+        android:text="detay" />
 
+    <Button
+        android:id="@+id/button_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/button_rounded"
+        android:layout_weight="1"
+        android:text="Konum" />
 
-        <Button
-            android:id="@+id/button_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="160dp"
-            android:layout_marginEnd="180dp"
-            android:background="@drawable/button_rounded"
-            android:text="DETAIL"
-            android:textColor="#ffffff"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/button_add_friends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_rounded"
+        android:text="ARKADAS CAGIR" />
 
-        <Button
-            android:id="@+id/button_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/button_detail"
-            android:layout_alignEnd="@+id/button_detail"
-            android:layout_alignBottom="@+id/button_detail"
-            android:layout_gravity="center"
-            android:layout_marginStart="-130dp"
-            android:layout_marginEnd="104dp"
-            android:layout_marginBottom="-1dp"
-            android:background="@drawable/button_rounded"
-            android:text="LOCATION"
-            android:textColor="#ffffff"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    </LinearLayout>
+</LinearLayout>
 
 
 
 
 
-</RelativeLayout>

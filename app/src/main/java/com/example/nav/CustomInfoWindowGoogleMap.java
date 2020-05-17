@@ -32,9 +32,13 @@ public class CustomInfoWindowGoogleMap implements GoogleMap.InfoWindowAdapter {
 
         TextView eventEdit =  v.findViewById(R.id.eventEdit);
         TextView detailEdit =  v.findViewById(R.id.detailEdit);
+        TextView dateEdit =v.findViewById(R.id.dateEdit);
+        TextView timeEdit=v.findViewById(R.id.timeEdit);
         if (Consts.Companion.getEvent() != null) {
             eventEdit.setText(Consts.Companion.getEvent().getEvent());
             detailEdit.setText(Consts.Companion.getEvent().getDetail());
+            dateEdit.setText(Consts.Companion.getEvent().getDate());
+            timeEdit.setText(Consts.Companion.getEvent().getTime());
         }
 
 

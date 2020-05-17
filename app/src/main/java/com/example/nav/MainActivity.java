@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity
                 eventList.clear();
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
                     Event event = ds.getValue(Event.class);
-                    if (event.getUserId()==currentId){
+                    if (event.getUserId().equals(currentId)){
                         eventList.add(event);
                     }
                 }
@@ -111,18 +112,10 @@ public class MainActivity extends AppCompatActivity
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);*/
-        Button exitButton = (Button)findViewById(R.id.exitButton);
 
-
-
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(i);
-            }
-        });
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -138,7 +131,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+
+        return super.onCreateOptionsMenu(menu);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -146,11 +140,33 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        FollowFragment followFragment = new FollowFragment();
+        FragmentManager manager = getSupportFragmentManager();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+        if (id==R.id.action_exit){
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
         }
+
+        if(id==R.id.action_addfriend) {
+           // MenuItem item1= findViewById(R.id.action_addfriend);
+
+
+                manager.beginTransaction().replace(R.id.map1,followFragment).addToBackStack(null).commit();
+               // manager.beginTransaction().show(followFragment);
+                //manager.beginTransaction().addToBackStack(null);
+                //manager.beginTransaction().commit();
+
+        }
+        if(id==R.id.action_home){
+            manager.popBackStack();
+
+
+        }
+
+
 
         return super.onOptionsItemSelected(item);
     }

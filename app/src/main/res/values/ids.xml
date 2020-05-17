@@ -2,4 +2,5 @@
 <resources>
     <item name="giris_git" type="id" />
     <item name="button_kayit" type="id" />
+    <item name="button_add_friends" type="id" />
 </resources>

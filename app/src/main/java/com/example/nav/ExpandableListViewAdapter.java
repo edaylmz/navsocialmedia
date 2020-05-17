@@ -3,6 +3,7 @@ package com.example.nav;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.List;
+
+import androidx.fragment.app.Fragment;
 
 public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
 
@@ -98,6 +101,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
 
         Button detail = view.findViewById(R.id.button_detail);
         final Button location = view.findViewById(R.id.button_location);
+        Button friends = view.findViewById(R.id.button_add_friends);
 
         detail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +130,24 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
 
             }
         });
+     /**   friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment= FollowFragment.
+                MainActivity.closeDrawer();
+
+                //String EtkId=eventList.get(groupPosition).getEventId();
+
+            }
+        });**/
+
+      /*  friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.closeDrawer();
+
+            }
+        });*/
 
         return view;
 

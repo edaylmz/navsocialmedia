@@ -69,7 +69,9 @@ public class DialogFragment {
                                 eventName.getText().toString(),
                                 eventDetail.getText().toString(),eventDate.getText().toString(),
                                 eventTime.getText().toString(),location.getLat(),location.getLng(),currentFirebaseUser.getUid());
+
                         eventveri.child("events").child(eventId).setValue(event);
+
                         dialog.dismiss();
                         MapTwo.getInstance().clearMap();
                         MapFragment.changeFabIconAdd();
@@ -87,9 +89,15 @@ public class DialogFragment {
             Btn_kaydet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    String eventId=e.eventId;
                     if(!eventName.getText().toString().isEmpty() && !eventDetail.getText().toString().isEmpty()&&
                             !eventDate.getText().toString().isEmpty()&&!eventTime.getText().toString().isEmpty()){
 
+                     /*  e.setEvent(eventName.getText().toString());
+                        e.setDetail(eventDetail.getText().toString());
+                        e.setDate(eventDate.getText().toString());
+                        e.setTime(eventTime.getText().toString());
+                        eventveri.child("events").child(eventId).updateChildren(eventId,e);*/
                         //firebase event update kodları
                     }
 
