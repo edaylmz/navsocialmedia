@@ -53,7 +53,7 @@ public class DialogFragment {
 
         //firebase listener kodları
 
-        if(isNew){
+       // if(isNew){
             Btn_kaydet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -84,8 +84,8 @@ public class DialogFragment {
 
                 }
             });
-        }else{
-            Btn_kaydet.setText("Güncelle");
+        /*}else{
+            Btn_kaydet.setText("Kaydet");
             Btn_kaydet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -93,11 +93,11 @@ public class DialogFragment {
                     if(!eventName.getText().toString().isEmpty() && !eventDetail.getText().toString().isEmpty()&&
                             !eventDate.getText().toString().isEmpty()&&!eventTime.getText().toString().isEmpty()){
 
-                     /*  e.setEvent(eventName.getText().toString());
+                       e.setEvent(eventName.getText().toString());
                         e.setDetail(eventDetail.getText().toString());
                         e.setDate(eventDate.getText().toString());
                         e.setTime(eventTime.getText().toString());
-                        eventveri.child("events").child(eventId).updateChildren(eventId,e);*/
+                        eventveri.child("events").child(eventId).updateChildren(eventId,e);
                         //firebase event update kodları
                     }
 
@@ -106,7 +106,7 @@ public class DialogFragment {
 
 
 
-        }
+        }*/
 
 
         //Firebase kodları
